@@ -13,17 +13,20 @@
         --text-dark: #2c3e50;
         --text-light: #ffffff;
     }
+
     body {
         margin: 0;
         font-family: Arial, sans-serif;
         color: var(--text-dark);
         background: var(--background-light);
     }
+
     .dashboard {
         display: grid;
         grid-template-columns: 250px 1fr;
         height: 100vh;
     }
+
     .sidebar {
         background: var(--primary-color);
         color: var(--text-light);
@@ -32,32 +35,40 @@
         top: 0;
         height: 100vh;
     }
+
     .sidebar h2 {
         margin: 0 0 20px;
         font-size: 1.5rem;
     }
+
     .sidebar nav ul {
         list-style: none;
         padding: 0;
     }
+
     .sidebar nav ul li {
         margin-bottom: 15px;
         cursor: pointer;
     }
+
     .sidebar nav ul li:hover {
         color: var(--accent-color);
     }
+
     main.main-content {
         padding: 20px;
         background: var(--background-light);
         overflow-y: auto;
     }
+
     .section {
         display: none;
     }
+
     .section.active {
         display: block;
     }
+
     .store-form {
         max-width: 600px;
         background: #fff;
@@ -66,14 +77,17 @@
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         margin-bottom: 20px;
     }
+
     .form-group {
         margin-bottom: 20px;
     }
+
     .form-group label {
         font-weight: bold;
         display: block;
         margin-bottom: 5px;
     }
+
     input[type="text"],
     textarea,
     input[type="file"] {
@@ -83,9 +97,11 @@
         border-radius: 4px;
         box-sizing: border-box;
     }
+
     textarea {
         resize: none;
     }
+
     .product-table {
         width: 100%;
         border-collapse: collapse;
@@ -95,22 +111,27 @@
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         margin-bottom: 20px;
     }
+
     .product-table th,
     .product-table td {
         border: 1px solid #ddd;
         padding: 10px;
         text-align: left;
     }
+
     .product-table th {
         background: var(--primary-color);
         color: var(--text-light);
     }
+
     .product-table tbody tr:nth-child(odd) {
         background: #f9f9f9;
     }
+
     .product-table tbody tr:hover {
         background: #f1f1f1;
     }
+
     .btn {
         background: var(--accent-color);
         color: var(--text-light);
@@ -119,51 +140,109 @@
         border-radius: 4px;
         cursor: pointer;
     }
+
     .btn:hover {
         background: #16a085;
     }
+
     .btn-small {
         padding: 5px 10px;
         margin-right: 5px;
     }
+
+    .store-front {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .store-header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .store-logo {
+        max-width: 150px;
+        margin-bottom: 20px;
+    }
+
+    .deals-container {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .deal-card {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+
+    .deal-price {
+        color: #2ecc71;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    .store-title {
+        color: var(--primary-color);
+        margin: 10px 0;
+    }
+
   </style>
 </head>
 <body>
     <div class="dashboard">
-        <aside class="sidebar" aria-label="Main Navigation">
-        <h2>My Store</h2>
-        <nav>
-            <ul>
-                <li data-section="store-setup">Store Setup</li>
-                <li data-section="products">Products</li>
-                <li data-section="orders">Orders</li>
-                <li data-section="analytics">Analytics</li>
-            </ul>
-        </nav>
-    </aside>
+        <div class="sidebar">
+            <h2>My Store</h2>
+            <nav>
+                <ul class="nav-list">
+                    <li class="nav-item" data-section="store-front">Store Front</li>
+                    <li class="nav-item" data-section="products">Products</li>
+                    <li class="nav-item" data-section="orders">Orders</li>
+                    <li class="nav-item" data-section="analytics">Analytics</li>
+                </ul>
+            </nav>
+        </div>
 
-    <main class="main-content">
-        <!-- Store Setup Section -->
-        <section id="store-setup" class="section active" aria-labelledby="store-setup-heading">
-            <div class="store-form">
-            <h2 id="store-setup-heading">Store Setup</h2>
-            <div class="form-group">
-                <label for="store-name">Store Name</label>
-                <input type="text" id="store-name" placeholder="Enter your store name" />
-            </div>
-            <div class="form-group">
-                <label for="store-description">Description</label>
-                <textarea id="store-description" rows="4" placeholder="Enter a brief description of your store"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="store-logo">Upload Logo</label>
-                <input type="file" id="store-logo" />
-            </div>
-            <div class="form-group">
-                <button class="btn" id="create-store-btn">Create Store</button>
-            </div>
-            </div>
-        </section>
+        <div class="main-content">
+            <!-- Add Store Front Section -->
+            <section id="store-front" class="section active">
+                <div class="store-header">
+                    <img id="storeLogoPreview" class="store-logo" alt="Store Logo">
+                    <h1 class="store-title" id="storeTitle"></h1>
+                </div>
+                
+                <h2>Latest Deals</h2>
+                <div class="deals-container" id="dealsContainer">
+                    <!-- Deal cards will be inserted here -->
+                </div>
+            </section>
+
+            <!-- Modified Store Setup Section -->
+            <section id="store-setup" class="section">
+                <form class="store-form" id="storeForm">
+                    <h2>Create Your Store</h2>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Store Name</label>
+                            <input type="text" id="storeName" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea id="storeDescription" rows="4" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Upload Logo</label>
+                            <input type="file" id="storeLogo" accept="image/*">
+                            <div id="logoPreview" class="logo-preview"></div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Create Store</button>
+                </form>
+            </section>
 
         <!-- Products Section -->
         <section id="products" class="section" aria-labelledby="products-heading">
@@ -180,7 +259,7 @@
             <tbody>
                 <tr>
                 <td>Handmade Soap</td>
-                <td>$5.99</td>
+                <td>₹50.00</td>
                 <td>50</td>
                 <td>
                     <button class="btn btn-small edit-btn">Edit</button>
