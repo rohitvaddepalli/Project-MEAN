@@ -1,0 +1,39 @@
+<style>
+    .order-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
+    .order-table th {
+        background: #34495e;
+        color: white;
+        padding: 12px;
+    }
+    
+    .order-table td {
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .status-pending { color: #f39c12; }
+    .status-shipped { color: #3498db; }
+</style>
+
+<table class="order-table">
+    <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>Customer</th>
+            <th>Amount</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>#1001</td>
+            <td>John Doe</td>
+            <td>$29.97</td>
+            <td class="status-pending">Pending</td>
+        </tr>
+    </tbody>
+</table>

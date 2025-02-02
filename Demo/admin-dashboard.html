@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    .dashboard {
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+    }
+    .stat-card {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .stat-card h3 {
+        margin: 0;
+        color: #333;
+    }
+    .stat-number {
+        font-size: 2em;
+        color: #007bff;
+        margin: 10px 0;
+    }
+</style>
+</head>
+<body>
+<div class="dashboard">
+    <h1>Admin Dashboard</h1>
+    <div class="stats-grid">
+        <div class="stat-card">
+            <h3>Active Users</h3>
+            <div class="stat-number">42</div>
+        </div>
+        <div class="stat-card">
+            <h3>Registered Users</h3>
+            <div class="stat-number">156</div>
+        </div>
+        <div class="stat-card">
+            <h3>New Users Today</h3>
+            <div class="stat-number">12</div>
+        </div>
+        <div class="stat-card">
+            <h3>Total Sessions</h3>
+            <div class="stat-number">289</div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
