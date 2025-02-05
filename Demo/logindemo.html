@@ -91,15 +91,12 @@ const users = [
 document.getElementById("loginForm").addEventListener("submit", function (e) {
   e.preventDefault();
 
-  // Get input values
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
-  // Find user in the mock database
   const user = users.find((u) => u.email === email && u.password === password);
 
   if (user) {
-    // Redirect based on role
     switch (user.role) {
       case "admin":
         window.location.href = "/admin-dashboard.html";
@@ -115,7 +112,6 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
           "Unexpected role. Please contact support.";
     }
   } else {
-    // Show error message if login fails
     document.getElementById("error-message").textContent =
       "Invalid email or password.";
   }
