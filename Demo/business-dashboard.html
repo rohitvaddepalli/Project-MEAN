@@ -149,45 +149,58 @@
         padding: 5px 10px;
         margin-right: 5px;
     }
-
   </style>
 </head>
 <body>
     <div class="dashboard">
-        <aside class="sidebar" aria-label="Main Navigation">
-        <h2>My Store</h2>
-        <nav>
-            <ul>
-                <li data-section="store-setup">Store Setup</li>
-                <li data-section="products">Products</li>
-                <li data-section="orders">Orders</li>
-                <li data-section="analytics">Analytics</li>
-            </ul>
-        </nav>
-    </aside>
+        <div class="sidebar">
+            <h2>My Store</h2>
+            <nav>
+                <ul class="nav-list">
+                    <li class="nav-item" data-section="store-front">Store Front</li>
+                    <li class="nav-item" data-section="products">Products</li>
+                    <li class="nav-item" data-section="orders">Orders</li>
+                    <li class="nav-item" data-section="analytics">Analytics</li>
+                </ul>
+            </nav>
+        </div>
 
-    <main class="main-content">
-        <!-- Store Setup Section -->
-        <section id="store-setup" class="section active" aria-labelledby="store-setup-heading">
-            <div class="store-form">
-            <h2 id="store-setup-heading">Store Setup</h2>
-            <div class="form-group">
-                <label for="store-name">Store Name</label>
-                <input type="text" id="store-name" placeholder="Enter your store name" />
-            </div>
-            <div class="form-group">
-                <label for="store-description">Description</label>
-                <textarea id="store-description" rows="4" placeholder="Enter a brief description of your store"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="store-logo">Upload Logo</label>
-                <input type="file" id="store-logo" />
-            </div>
-            <div class="form-group">
-                <button class="btn" id="create-store-btn">Create Store</button>
-            </div>
-            </div>
-        </section>
+        <div class="main-content">
+            <!-- Add Store Front Section -->
+            <section id="store-front" class="section active">
+                <div class="store-header">
+                    <img id="storeLogoPreview" class="store-logo" alt="Store Logo">
+                    <h1 class="store-title" id="storeTitle"></h1>
+                </div>
+                
+                <h2>Latest Deals</h2>
+                <div class="deals-container" id="dealsContainer">
+                    <!-- Deal cards will be inserted here -->
+                </div>
+            </section>
+
+            <!-- Modified Store Setup Section -->
+            <section id="store-setup" class="section">
+                <form class="store-form" id="storeForm">
+                    <h2>Create Your Store</h2>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Store Name</label>
+                            <input type="text" id="storeName" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea id="storeDescription" rows="4" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Upload Logo</label>
+                            <input type="file" id="storeLogo" accept="image/*">
+                            <div id="logoPreview" class="logo-preview"></div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Create Store</button>
+                </form>
+            </section>
 
         <!-- Products Section -->
         <section id="products" class="section" aria-labelledby="products-heading">
